@@ -13,3 +13,6 @@ type,Type,
 format,Format,
 rights,Rights,
 rightsstatement,Rights Statement,,true
+a,A,,
+b,B,,
+c,C,,
