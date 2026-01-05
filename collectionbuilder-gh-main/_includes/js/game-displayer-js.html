@@ -11,14 +11,68 @@
         {% endfor %}
     ];
 
+    //USAR ESTO CUANDO ESTÉ BIEN ENLAZADO
     // let url = new URL(window.location);
     // var itemPageId = url.searchParams.get('id');
 
-    //USAR ESTO CUANDO ESTÉ BIEN ENLAZADO
-    var itemPageId = 'demo_001'
+    var itemPageId = 'hola'
 
     var record_index = cb_items.findIndex(item => item.objectid == itemPageId);
     var record = cb_items[record_index];
     
-    
+    fillGameData(record)
+
+    function fillGameData(data) {
+  document.querySelector(".game-title").textContent = data.title;
+
+  // IMAGEN
+  const img = document.querySelector(".game-image");
+  img.src = "/objects/" + data.filename;
+  img.alt = data.title;
+
+  // DESCRIPCIÓN PRINCIPAL
+  const descriptionParagraphs = document.querySelectorAll(".game-description-content");
+  descriptionParagraphs[0].textContent = data.description;
+  descriptionParagraphs[1].remove(); // eliminamos el segundo párrafo si no se usa
+
+  // NARRATIVA
+  const narrativaSection = document.querySelectorAll(".game-data")[0];
+  const narrativaParagraphs = narrativaSection.querySelectorAll(".game-data-paragraph");
+  narrativaParagraphs[0].textContent = data.narrative_text;
+  narrativaParagraphs[1].remove();
+
+  // MÚSICA
+  const musicaSection = document.querySelectorAll(".game-data")[1];
+  const musicaParagraphs = musicaSection.querySelectorAll(".game-data-paragraph");
+  musicaParagraphs[0].textContent = data.music_text;
+  musicaParagraphs[1].remove();
+
+  // GRÁFICOS
+  const graficosSection = document.querySelectorAll(".game-data")[2];
+  const graficosParagraphs = graficosSection.querySelectorAll(".game-data-paragraph");
+  graficosParagraphs[0].textContent = data.graphics_text;
+  graficosParagraphs[1].remove();
+
+  // TAGS (genero, narrativa, musica, innovador)
+  const tagsContainer = document.querySelector(".game-tags");
+  tagsContainer.innerHTML = ""; // limpiamos las tags por defecto
+
+  const tags = [
+    data.genero,
+    data.narrativa,
+    data.musica,
+    data.innovador
+  ];
+
+  tags.forEach(tagText => {
+    if (tagText && tagText.trim() !== "") {
+      const tag = document.createElement("p");
+      tag.classList.add("tag");
+      tag.textContent = tagText;
+      tagsContainer.appendChild(tag);
+    }
+  });
+}
+
+
 </script>
