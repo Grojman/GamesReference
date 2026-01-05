@@ -1,4 +1,269 @@
-/* 
-    Put your custom SCSS here! 
-    This allows you to override any CollectionBuilder or Bootstrap CSS without modifying the base theme files directly.
-*/
+@font-face {
+    font-family: 'Lazydog';
+    src: url('../fonts/Lazydog.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #4a4a4a;
+    /* Dark grey background from image */
+    font-family: 'Lazydog', sans-serif;
+}
+
+.community-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Header "NEWS" Pill */
+.news-header-pill {
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 50px;
+    /* Fully rounded */
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Styles */
+.news-card {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #000;
+}
+
+.news-card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+/* Game Name Pill (Dark Grey) */
+.game-pill {
+    background-color: #555;
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.user-date-info {
+    color: #555;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.news-card-body {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+    /* The reference image uses all capsish handstyle */
+}
+
+/* Scrollbar hidden or styled if needed, but page scroll is default */
+
+/* --- NEW NAVIGATION STYLES --- */
+
+/* Wrapper to center the nav */
+.custom-nav-container {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    background-color: transparent;
+    /* Or #000 if you want the black bar behind it */
+    width: 100%;
+}
+
+/* The Main Pill */
+.custom-nav-pill {
+    display: flex;
+    align-items: center;
+    background-color: #555;
+    /* The grey bar */
+    border-radius: 50px;
+    padding: 10px;
+    /* Increased padding */
+    width: 100%;
+    max-width: 1200px;
+    height: 75px;
+    /* Increased height from 60px */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Search Section (Left side white pill) */
+.nav-search-section {
+    background-color: #fff;
+    border-radius: 50px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: auto;
+    /* Pushes the links to the right/center */
+    min-width: 250px;
+}
+
+/* Override default search form styles */
+.nav-search-section form {
+    width: 100%;
+    margin: 0 !important;
+}
+
+.nav-search-section .input-group {
+    border: none;
+    align-items: center;
+}
+
+.nav-search-section input {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    font-family: 'Lazydog', sans-serif;
+    text-transform: uppercase;
+    color: #555;
+    font-size: 1.2rem;
+    padding: 0 10px;
+}
+
+.nav-search-section input::placeholder {
+    color: #888;
+}
+
+.nav-search-section button {
+    background: transparent !important;
+    border: none !important;
+    color: #555;
+}
+
+/* Links Section */
+.nav-links-section {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+    padding-right: 15px;
+}
+
+.custom-navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+    align-items: center;
+}
+
+.custom-nav-item {
+    margin: 0;
+}
+
+.custom-nav-link {
+    color: #fff !important;
+    text-decoration: none;
+    font-family: 'Lazydog', sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+    /* Smaller text as requested */
+    border: 2px solid #fff;
+    border-radius: 30px;
+    padding: 5px 15px;
+    transition: all 0.2s ease;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.custom-nav-link:hover,
+.custom-nav-link.active {
+    background-color: #fff;
+    color: #555 !important;
+}
+
+/* Fire emoji fix if needed - assumes content is handled in HTML */
+
+/* Edit Icon Style */
+.icon-link {
+    border: 2px solid #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    /* Squircle for icon */
+}
+
+/* --- SPLASH SCREEN STYLES --- */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #555;
+    /* Match body background */
+    z-index: 9999;
+    /* Ensure it's on top */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-out;
+    cursor: pointer;
+}
+
+.splash-content {
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.splash-logo {
+    max-width: 80%;
+    /* Responsive width */
+    width: 800px;
+    /* Max width constraint */
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.splash-text {
+    font-family: 'Lazydog', sans-serif;
+    /* Use custom font */
+    font-size: 2.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    animation: pulse 2s infinite;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

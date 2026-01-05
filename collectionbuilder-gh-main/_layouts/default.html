@@ -1,13 +1,49 @@
 <!doctype html>
 <html lang="en" class="h-100">
-  <head prefix="og: http://ogp.me/ns#">
-    {% include head/head.html %}
-  </head>
-  <body class="d-flex flex-column h-100">
-    {% include collection-nav.html %}
-    <main id="maincontent" role="main" class="flex-shrink-0">
+
+<head prefix="og: http://ogp.me/ns#">
+  {% include head/head.html %}
+</head>
+
+<body class="d-flex flex-column h-100">
+
+  <!-- Splash Screen Overlay -->
+  <div id="splash-screen">
+    <div class="splash-content">
+      <img src="{{ '/assets/img/weblogo.svg' | relative_url }}" alt="Games References Logo" class="splash-logo">
+      <p class="splash-text">Click Here!</p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var splash = document.getElementById('splash-screen');
+
+      // Function to hide splash
+      function hideSplash() {
+        splash.style.opacity = '0';
+        setTimeout(function () {
+          splash.style.display = 'none';
+        }, 500); // Wait for transition
+        sessionStorage.setItem('splashShown', 'true');
+      }
+
+      // Check if already shown
+      if (sessionStorage.getItem('splashShown') === 'true') {
+        splash.style.display = 'none';
+      } else {
+        // Add event listeners to close on click or keypress
+        splash.addEventListener('click', hideSplash);
+        document.addEventListener('keydown', hideSplash);
+      }
+    });
+  </script>
+
+  {% include collection-nav.html %}
+  <main id="maincontent" role="main" class="flex-shrink-0">
     {{ content }}
-    </main>
-    {% include foot.html %}
-  </body>
+  </main>
+  {% include foot.html %}
+</body>
+
 </html>
