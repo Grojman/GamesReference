@@ -1,6 +1,6 @@
-id,fecha,usuario,avatar_color,juego,titulo,mensaje,likes,respuestas
-1,2024-05-21,CyberNinja,#00d2ff,Cyberpunk 2077,Build de Netrunner,"He encontrado una build rota con el monocable. ¿Alguien la ha probado en la actualización 2.1?",45,12
-2,2024-05-20,EldenLord,#e94560,Elden Ring,Malenia es imposible,"Llevo 45 intentos. ¿Algún consejo para esquivar el Waterfowl Dance sin usar escudo?",120,34
-3,2024-05-19,RetroGamer,#adff02,Super Mario 64,El pingüino,"Admitid que todos habéis tirado al pingüino por el precipicio alguna vez.",890,56
-4,2024-05-18,KratosFan,#ff8e00,God of War,Teoría sobre Atreus,"Tengo una teoría loca sobre el final del juego y la mitología nórdica...",23,5
-5,2024-05-17,SpeedRunner,#b500ff,Hollow Knight,Path of Pain,"Acabo de completar el Path of Pain en 5 minutos. Aquí está el clip.",67,8
+id,fecha,usuario,avatar_color,juego,titulo,subtitulo,contenido
+1,2024-05-21,CyberNinja,#00d2ff,Cyberpunk 2077,Build de Netrunner,"He encontrado una build rota con el monocable. ¿Alguien la ha probado en la actualización 2.1?","<p>He estado probando distintas combinaciones de habilidades centradas en hackeo y sigilo.</p><p>El monocable combinado con quickhacks parece especialmente efectivo tras el último parche.</p>"
+2,2024-05-20,EldenLord,#e94560,Elden Ring,Malenia es imposible,"Llevo 45 intentos. ¿Algún consejo para esquivar el Waterfowl Dance sin usar escudo?","<p>Malenia es uno de los jefes más exigentes del juego tanto en ritmo como en castigo.</p><p>Aprender sus animaciones es clave para sobrevivir a sus ataques más letales.</p>"
+3,2024-05-19,RetroGamer,#adff02,Super Mario 64,El pingüino,"Admitid que todos habéis tirado al pingüino por el precipicio alguna vez.","<p>Este momento se ha convertido en uno de los memes más longevos de la historia del videojuego.</p><p>Muchos jugadores lo recuerdan como su primer acto de maldad virtual.</p>"
+4,2024-05-18,KratosFan,#ff8e00,God of War,Teoría sobre Atreus,"Tengo una teoría loca sobre el final del juego y la mitología nórdica...","<p>La narrativa del juego deja varias pistas sutiles sobre el verdadero origen de Atreus.</p><p>Algunas de ellas conectan directamente con mitos menos conocidos.</p>"
+5,2024-05-17,SpeedRunner,#b500ff,Hollow Knight,Path of Pain,"Acabo de completar el Path of Pain en 5 minutos. Aquí está el clip.","<p>El Path of Pain es uno de los mayores desafíos de precisión del juego.</p><p>Optimizar cada salto es fundamental para conseguir buenos tiempos.</p>"

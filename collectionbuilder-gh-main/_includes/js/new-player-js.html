@@ -1,0 +1,44 @@
+{% assign posts = site.data.comunidad | sort: 'fecha' | reverse %}
+<script>
+    var cb_items = [ 
+        {%- for item in posts -%}
+        {
+            "id": {{ item.id | jsonify }},
+            "fecha": {{ item.fecha | jsonify }},
+            "usuario": {{ item.usuario | jsonify }},
+            "avatar_color": {{ item.avatar_color | jsonify }},
+            "juego": {{ item.juego | jsonify }},
+            "titulo": {{ item.titulo | jsonify }},
+            "subtitulo": {{ item.subtitulo | jsonify }},
+            "contenido": {{ item.contenido | jsonify }},
+        }{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+        ];
+
+
+    let url = new URL(window.location);
+    var itemPageId = url.searchParams.get('id');
+
+    var record_index = cb_items.findIndex(item => item.id == itemPageId);
+    var record = cb_items[record_index];
+
+    if (record != null)
+    {
+        document.querySelector('.new-title').textContent = record.titulo;
+        document.querySelector('.new-subtitle').textContent = record.subtitulo;
+        document.querySelector('.game-name').textContent = record.juego;
+
+        var a = document.querySelector('.new-author')
+        a.textContent = record.usuario;
+        a.style.color = record.avatar_color;
+
+        document.querySelector('.new-date').textContent = record.fecha;
+
+        document.querySelector('.new-content').innerHTML = record.contenido
+    } else 
+    {
+        document.querySelector('article').innerHTML = "Lo sentimos, esta noticia parece que no existe"
+    }
+
+    console.log(cb_items)
+</script>
