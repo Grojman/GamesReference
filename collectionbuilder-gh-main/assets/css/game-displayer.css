@@ -64,6 +64,7 @@
 }
 
 .game-second-row {
+    flex-grow: 1;
     background-color: white;
     padding: 1.5rem;
     border-radius: 20px;
@@ -130,6 +131,7 @@
 }
 
 .game-tags {
+    margin-top: auto;
     display: flex;
     gap: 0.5rem;
 }

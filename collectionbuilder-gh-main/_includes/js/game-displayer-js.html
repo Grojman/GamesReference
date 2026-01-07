@@ -12,16 +12,19 @@
     ];
 
     //USAR ESTO CUANDO ESTÉ BIEN ENLAZADO
-    // let url = new URL(window.location);
-    // var itemPageId = url.searchParams.get('id');
+    let url = new URL(window.location);
+    var itemPageId = url.searchParams.get('id');
 
-    var itemPageId = 'hola'
+    // var itemPageId = 'hola'
 
     var record_index = cb_items.findIndex(item => item.objectid == itemPageId);
     var record = cb_items[record_index];
     
-    fillGameData(record)
-
+    if (record != null) fillGameData(record)
+    else {
+      document.querySelector(".game-title").innerHTML = 'Not found?';
+      document.querySelector(".game-information").innerHTML = 'Sorry, item not found. Please visit <a href="{{ "/browse.html" | relative_url }}">Browse page</a> to find an item.';
+    }
     function fillGameData(data) {
   document.querySelector(".game-title").textContent = data.title;
 
