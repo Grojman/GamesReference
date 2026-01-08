@@ -1,9 +1,12 @@
 display_name,stub,dropdown_parent
-Top🔥,/
-Género,/
-Narrativa,/
-Música,/
-Famoso,/
+Home,/
+Juegos,
+Todos,/juegos.html,Juegos
+Por Estética,/juegos.html?by=estetica,Juegos
+Por Narrativa,/juegos.html?by=narrativa,Juegos
+Por Música,/juegos.html?by=musica,Juegos
+Por Género,/juegos.html?by=genero,Juegos
+Buscar,/browse.html
 Mapa,/map.html
 Noticias,/comunidad/
-test,/game-displayer.html
+Sobre nosotros,/about.html
