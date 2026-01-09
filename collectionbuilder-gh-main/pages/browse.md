@@ -6,4 +6,4 @@ permalink: /browse.html
 # the Browse visualization will be added below the content in this file
 ---
 
-## Buscar Juegos
+<h1 class="h2 fw-bold mb-4 text-uppercase text-center" style="color:var(--bs-gray-100)">Buscar Juegos</h1>

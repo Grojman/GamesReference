@@ -152,8 +152,11 @@ body {
     display: flex;
     align-items: center;
     flex-grow: 1;
-    justify-content: center;
+    justify-content: flex-start;
+    /* Anchor to left */
     padding-right: 15px;
+    padding-left: 10px;
+    /* Add slight spacing from search */
 }
 
 .custom-navbar-nav {
@@ -162,7 +165,9 @@ body {
     margin: 0;
     padding: 0;
     gap: 10px;
+    /* Reduced gap slightly */
     align-items: center;
+    justify-content: flex-start;
 }
 
 .custom-nav-item {
@@ -174,14 +179,18 @@ body {
     text-decoration: none;
     font-family: 'Lazydog', sans-serif;
     font-weight: bold;
-    font-size: 0.9rem;
-    /* Smaller text as requested */
+    font-size: 1.1rem;
+    /* Reduced size slightly */
     border: 2px solid #fff;
     border-radius: 30px;
-    padding: 5px 15px;
+    padding: 6px 18px;
+    /* Adjusted padding */
     transition: all 0.2s ease;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     white-space: nowrap;
+    height: 100%;
 }
 
 .custom-nav-link:hover,
