@@ -25,7 +25,7 @@ permalink: /juegos.html
       <div class="col-md-4 mb-4">
         <div class="card h-100 shadow border-0 hover-effect">
           
-          <div class="position-relative" style="height: 220px; overflow: hidden; background-color: #212529;">
+          <div class="position-relative" style="height: 205px; overflow: hidden; background-color: #212529;">
             <a href="{{ '/game-displayer.html' | relative_url }}?id={{ item.objectid }}">
               <img src="{{ '/objects/' | relative_url }}{{ item.filename }}" 
                    class="card-img-top w-100 h-100" 
@@ -128,13 +128,13 @@ permalink: /juegos.html
       col.innerHTML = `
         <div class="card h-100 shadow border-0 hover-effect">
 
-          <div class="position-relative" style="height: 220px; overflow: hidden; background-color: #212529;">
+          <div class="position-relative" style="height: 190px; overflow: hidden; background-color: #212529;">
             <a href="/game-displayer.html?id=${item.objectid}">
               <img src="/objects/${item.filename || ""}"
                    class="card-img-top w-100 h-100"
                    style="object-fit: cover; transition: transform 0.3s;"
                    alt="${item.title || ""}"
-                   onmouseover="this.style.transform='scale(1.1)'"
+                   onmouseover="this.style.transform='scale(1.02)'"
                    onmouseout="this.style.transform='scale(1)'">
             </a>
 
