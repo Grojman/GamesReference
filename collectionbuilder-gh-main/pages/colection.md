@@ -126,7 +126,7 @@ permalink: /juegos.html
       col.className = "col-md-4 mb-4";
 
       col.innerHTML = `
-        <div class="card h-100 shadow border-0 hover-effect">
+        <div class="card h-100 shadow border-0 hover-effect" style="border-radius: 15px; overflow: hidden;">
 
           <div class="position-relative" style="height: 190px; overflow: hidden; background-color: #212529;">
             <a href="/game-displayer.html?id=${item.objectid}">
@@ -140,7 +140,7 @@ permalink: /juegos.html
 
             ${item.genero ? `
               <div class="position-absolute top-0 right-0 m-2">
-                <span class="badge badge-warning text-dark shadow-sm">${item.genero}</span>
+                <span class="badge text-white" style="background-color: rgba(35, 31, 31, 0.7);">${item.genero}</span>
               </div>
             ` : ""}
           </div>
