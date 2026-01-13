@@ -16,9 +16,12 @@ var items = [
 ];
 
 /* function to create cards for each item */ 
-function makeCard(obj) {
+function makeCard(obj, searchTerm) {
     // find item link
     var itemHref = "{{ '/game-displayer.html' | relative_url | append: '?id=' }}" + obj.link;
+    if (searchTerm && searchTerm.trim() !== "") {
+        itemHref += "&category=" + encodeURIComponent(searchTerm.trim());
+    }
     // find images
     var imgSrc, thumbSrc;
     // add images or thumb for objects based on format
@@ -126,7 +129,7 @@ function filterItems(arr,q) {
     // add stuff, make cards first in giant var, then add all at once to speed things up
     var cards = "";
     for (var i = 0, len = filteredItems.length; i < len; i++) {
-        cards += makeCard(filteredItems[i]);
+    cards += makeCard(filteredItems[i], q);
     }
     browseItemsDiv.innerHTML = cards;
 

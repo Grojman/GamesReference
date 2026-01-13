@@ -5,77 +5,96 @@
 {%- assign stubs = site.data.config-nav | map: 'stub' | join: ';' -%}
 {%- assign items = site.data[site.metadata] | where_exp: 'item','item.objectid' -%}
 <script>
-    var cb_items = [ 
-        {%- for item in items -%}
-        { "objectid": {{ item.objectid | jsonify }}, {% if item.parentid %}"parentid": {{ item.parentid | jsonify }}, {% endif %}{% if item.title %}{% unless fields contains 'title' %}"title": {{ item.title | jsonify }}, {% endunless %}{% endif %}{% for f in fields %}{% if item[f.field] %}{{ f.field | jsonify }}: {{ item[f.field] | jsonify }}, {% endif %}{% endfor %}{% if item.youtubeid %} "youtubeid": {{ item.youtubeid | jsonify }}, {% endif %}{% if item.vimeoid %} "vimeoid": {{ item.vimeoid | jsonify }}, {% endif %}"format": {{ item.format | jsonify }}, "filename": {% if item.filename %}"{{ item.filename }}"{% else %}""{% endif %} }{% unless forloop.last %}, {% endunless %}
-        {% endfor %}
-    ];
-
-    //USAR ESTO CUANDO ESTÉ BIEN ENLAZADO
-    let url = new URL(window.location);
-    var itemPageId = url.searchParams.get('id');
-
-    // var itemPageId = 'hola'
-
-    var record_index = cb_items.findIndex(item => item.objectid == itemPageId);
-    var record = cb_items[record_index];
-    
-    if (record != null) fillGameData(record)
-    else {
-      document.querySelector(".game-title").innerHTML = 'Not found?';
-      document.querySelector(".game-information").innerHTML = 'Sorry, item not found. Please visit <a href="{{ "/browse.html" | relative_url }}">Browse page</a> to find an item.';
-    }
-    function fillGameData(data) {
-  document.querySelector(".game-title").textContent = data.title;
-
-  // IMAGEN
-  const img = document.querySelector(".game-image");
-  img.src = "/objects/" + data.filename;
-  img.alt = data.title;
-
-  // DESCRIPCIÓN PRINCIPAL
-  const descriptionParagraphs = document.querySelectorAll(".game-description-content");
-  descriptionParagraphs[0].textContent = data.description;
-  descriptionParagraphs[1].remove(); // eliminamos el segundo párrafo si no se usa
-
-  // NARRATIVA
-  const narrativaSection = document.querySelectorAll(".game-data")[0];
-  const narrativaParagraphs = narrativaSection.querySelectorAll(".game-data-paragraph");
-  narrativaParagraphs[0].textContent = data.narrative_text;
-  narrativaParagraphs[1].remove();
-
-  // MÚSICA
-  const musicaSection = document.querySelectorAll(".game-data")[1];
-  const musicaParagraphs = musicaSection.querySelectorAll(".game-data-paragraph");
-  musicaParagraphs[0].textContent = data.music_text;
-  musicaParagraphs[1].remove();
-
-  // GRÁFICOS
-  const graficosSection = document.querySelectorAll(".game-data")[2];
-  const graficosParagraphs = graficosSection.querySelectorAll(".game-data-paragraph");
-  graficosParagraphs[0].textContent = data.graphics_text;
-  graficosParagraphs[1].remove();
-
-  // TAGS (genero, narrativa, musica, innovador)
-  const tagsContainer = document.querySelector(".game-tags");
-  tagsContainer.innerHTML = ""; // limpiamos las tags por defecto
-
-  const tags = [
-    data.genero,
-    data.narrativa,
-    data.musica,
-    data.innovador
+  var cb_items = [
+    {%- for item in items -%}
+    { "objectid": {{ item.objectid | jsonify }}, {% if item.parentid %}"parentid": {{ item.parentid | jsonify }}, {% endif %}{% if item.title %}{% unless fields contains 'title' %}"title": {{ item.title | jsonify }}, {% endunless %}{% endif %}{% for f in fields %}{% if item[f.field] %}{{ f.field | jsonify }}: {{ item[f.field] | jsonify }}, {% endif %}{% endfor %}{% if item.youtubeid %} "youtubeid": {{ item.youtubeid | jsonify }}, {% endif %}{% if item.vimeoid %} "vimeoid": {{ item.vimeoid | jsonify }}, {% endif %}"format": {{ item.format | jsonify }}, "filename": {% if item.filename %}"{{ item.filename }}"{% else %}""{% endif %} }{% unless forloop.last %}, {% endunless %}
+    {% endfor %}
   ];
 
-  tags.forEach(tagText => {
-    if (tagText && tagText.trim() !== "") {
-      const tag = document.createElement("p");
-      tag.classList.add("tag");
-      tag.textContent = tagText;
-      tagsContainer.appendChild(tag);
-    }
-  });
-}
+  //USAR ESTO CUANDO ESTÉ BIEN ENLAZADO
+  let url = new URL(window.location);
+  var itemPageId = url.searchParams.get('id');
+
+  // var itemPageId = 'hola'
+
+  var record_index = cb_items.findIndex(item => item.objectid == itemPageId);
+  var record = cb_items[record_index];
+  
+  if (record != null) fillGameData(record)
+  else {
+    document.querySelector(".game-title").innerHTML = 'Not found?';
+    document.querySelector(".game-information").innerHTML = 'Sorry, item not found. Please visit <a href="{{ "/browse.html" | relative_url }}">Browse page</a> to find an item.';
+  }
+  function fillGameData(data) {
+    document.querySelector(".game-title").textContent = data.title;
+
+    // IMAGEN
+    const img = document.querySelector(".game-image");
+    img.src = "/objects/" + data.filename;
+    img.alt = data.title;
+
+    // DESCRIPCIÓN PRINCIPAL
+    const descriptionParagraphs = document.querySelectorAll(".game-description-content");
+    descriptionParagraphs[0].textContent = data.description;
+    descriptionParagraphs[1].remove(); // eliminamos el segundo párrafo si no se usa
+
+    // NARRATIVA
+    const narrativaSection = document.querySelectorAll(".game-data")[0];
+    const narrativaParagraphs = narrativaSection.querySelectorAll(".game-data-paragraph");
+    narrativaParagraphs[0].textContent = data.narrative_text;
+    narrativaParagraphs[1].remove();
+
+    // MÚSICA
+    const musicaSection = document.querySelectorAll(".game-data")[1];
+    const musicaParagraphs = musicaSection.querySelectorAll(".game-data-paragraph");
+    musicaParagraphs[0].textContent = data.music_text;
+    musicaParagraphs[1].remove();
+
+    // GRÁFICOS
+    const graficosSection = document.querySelectorAll(".game-data")[2];
+    const graficosParagraphs = graficosSection.querySelectorAll(".game-data-paragraph");
+    graficosParagraphs[0].textContent = data.graphics_text;
+    graficosParagraphs[1].remove();
+
+    // TAGS (genero, narrativa, musica, innovador)
+    const tagsContainer = document.querySelector(".game-tags");
+    tagsContainer.innerHTML = ""; // limpiamos las tags por defecto
+
+    const tags = [
+      data.genero,
+      data.narrativa,
+      data.musica,
+      data.innovador
+    ];
+
+    tags.forEach(tagText => {
+      if (tagText && tagText.trim() !== "") {
+        const tag = document.createElement("p");
+        tag.classList.add("tag");
+        tag.textContent = tagText;
+        tagsContainer.appendChild(tag);
+      }
+    });
+  }
 
 
+  // LÓGICA DEL BOTÓN ATRÁS
+  // 1. Leer la categoría de la URL
+  var category = url.searchParams.get('category');
+  var backButton = document.querySelector(".go-back-button");
+  if (backButton) {
+    backButton.addEventListener("click", function () {
+      if (category) {
+        // 2. Si hay categoría, volver a browse.html con el filtro (hash)
+        window.location.href = "{{ '/browse.html' | relative_url }}#" + category;
+      } else {
+        // 3. Si no, comportamiento estándar (historial o home)
+        if (document.referrer && document.referrer.indexOf(window.location.host) !== -1) {
+          history.back();
+        } else {
+          window.location.href = "{{ '/' | relative_url }}";
+        }
+      }
+    });
+  }
 </script>
